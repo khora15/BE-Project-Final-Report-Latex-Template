@@ -1,6 +1,75 @@
 \chapter{Implementation}
 
-\section{Module1}
+\section{Implementation}
+
+Gladinet and Dropbox already have implemented integration with SaaS , but IaaS has not been integrated yet, we integrate that.  
+Windows chosen as OS to work with because more familiar and BMC uses windows. 
+
+Technology :
+
+1)  C++ for explorer settings
+2)	C# for windows system service
+3)	VB6 for GUI
+4)	JDK 7 for calling APIS
+
+C# with the .Net Libraries in Microsoft Visual Studio 2010 was utilised for designing the windows service
+
+
+	Basically, the project was divided into 3 modules :  
+
+1)	System (Explorer) Settings
+2)	GUI Development
+3)	Client Side Development
+4)	 System services
+
+\subsection{1)  System (Explorer) Settings}
+Code Snippet
+\lstinputlisting{helloworld.py}
+This module included various explorer settings like –
+
+ Creating custom columns: Using the IColumnProvider interface in Windows XP, custom columns like Status, Public DNS, Platform and Type. 
+
+New Extension: A new extension .cvm was created and stored in the registry. An icon and client services are bound to it.
+
+Right-Click Menu : has been modified and formatted for the .cvm files to include options like Start VM, Stop VM, Terminate VM. Every option has an action bound to it.
+
+My Cloud Folder : A system folder ‘My Cloud’ has been created in My Computer. This cannot be deleted or moved anyplace else.
+
+2)GUI Development : VB was used to create the GUI required for various operations on the VM like start and stop.  Create VM takes in values for new VM and creates one with those specifications. 
+
+3)Client UI : Amazon API’s are used to make calls to the user’s account . 
+
+
+\subsection{2)  GUI Development}
+Code Snippet
+\lstinputlisting{helloworld.py}
+This phase includes creating the functions to be performed on the client side and allocating them to various events. 
+Certain operations like:
+•  Create VM
+•	Start VM
+•	Terminate VM
+•	Delete VM
+•	Configure VM
+are to be carried out on the Cloud VM’s. High level coding languages like Java or C# can be used to operate these commands, depending on the CSP framework. The code should synchronize the details between the Cloud and User desktop and communicate between them.  
+
+
+\subsection{3)  Client Side Development}
+Code Snippet
+\lstinputlisting{helloworld.py}
+Every function from the above mentioned 5 need a GUI for the user to enter values, requests, queries, etc. 
+
+\subsection{4)   System services}
+Code Snippet
+\lstinputlisting{helloworld.py}
+A system service runs in the background , every 50 seconds , refreshing the status of all the VM’s and synching the user’s web account with the My Cloud Folder.
+
+
+
+\section{DEPLOYMENT}
+
+
+BMC employees using amazon accounts will install the application and use it.. Deployment of proj will be in the form of various executable and .reg files and dlls.
+
 
 \subsection{Submodule1}
 Code Snippet
